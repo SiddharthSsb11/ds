@@ -115,6 +115,39 @@ class LinkedList {
       current = current.next;
     }
   }
+
+  search(value) {
+    if (!this.head) {
+      return -1;
+    }
+
+    let i = 0;
+    let current = this.head;
+    while (current) {
+      if ((current.value = value)) {
+        return i;
+      }
+      current = current.next;
+      i++;
+    }
+
+    return -1;
+  }
+
+  findMiddle() {
+    if (!this.head) {
+      return -1;
+    }
+
+    let current = this.head;
+    let middleIndex = Math.floor(this.size() / 2); //math.ciel
+
+    for (let i = 0; i < middleIndex; i++) {
+      current = current.next;
+    }
+
+    return current;
+  }
 }
 
 const linkedlist = new LinkedList();
