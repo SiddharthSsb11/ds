@@ -52,6 +52,7 @@ const deleteNodeFromEnd = (head, n) => {
   }
 
   while (fast.next) {
+    // fast reaches end
     fast = fast.next;
     slow = slow.next;
   }
