@@ -23,6 +23,29 @@ const validAnagram = (str1, str2) => {
   return true;
 };
 
+function isAnagram(str1, str2) {
+  // If lengths are different, they cannot be anagrams
+  if (str1.length !== str2.length) return false;
+
+  const charCount = {};
+
+  // Count characters from the first string
+  for (let char of str1) {
+    charCount[char] = (charCount[char] || 0) + 1;
+  }
+
+  // Subtract character counts using the second string
+  for (let char of str2) {
+    if (!charCount[char]) {
+      return false; // If char is not in the object or goes negative, not an anagram
+    }
+    charCount[char]--;
+  }
+
+  // If all values in the object are zero, they are anagrams
+  return true;
+}
+
 console.log(validAnagram("anagram", "nagarm")); //false
 console.log(validAnagram("listen", "silent")); // true
 // rat / tar
